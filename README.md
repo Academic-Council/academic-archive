@@ -96,6 +96,42 @@ Name the resource in italics, add an em dash, then say in a sentence why it is
 worth someone's time. A bare list of links is far less useful than a line of
 context.
 
+## Submitting your work
+
+Nothing goes straight to the live site. Changes are proposed in a **pull
+request** (PR): someone on the Academic Council reviews it, and merging is what
+publishes it. New to pull requests? GitHub's own guide is here:
+[Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+
+If you are editing through the CMS, it opens the PR for you — write, submit for
+review, done.
+
+If you are working with the files directly:
+
+1. Make a branch, named after what you are adding:
+
+   ```bash
+   git switch -c psychology-argument-article
+   ```
+
+2. Add your files and commit them:
+
+   ```bash
+   git add docs/ib-programme/courses/psychology/articles/
+   git commit -m "Add psychology article on constructing arguments"
+   ```
+
+3. Push the branch:
+
+   ```bash
+   git push -u origin psychology-argument-article
+   ```
+
+4. Open a pull request against `main`, and say in a sentence or two what you
+   added and anything a reviewer should look at.
+
+Once it is merged, the site rebuilds and publishes itself.
+
 ## Tags
 
 Tags drive the cross-cutting views, such as every course in one IB group. Use the
