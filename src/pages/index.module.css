@@ -20,4 +20,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 0 4rem;
+}
+
+.card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.cardTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.cardDescription {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
 }

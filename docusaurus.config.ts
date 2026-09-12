@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Academic Archive',
+  tagline: 'Notes, guides, and resources for UCC students.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -14,26 +14,43 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // Production URL and base path for the GitHub Pages project site:
+  // https://academic-council.github.io/academic-archive/
+  url: 'https://academic-council.github.io',
+  baseUrl: '/academic-archive/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  // GitHub Pages deployment config.
+  organizationName: 'Academic-Council',
+  projectName: 'academic-archive',
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  // Treat .md as plain CommonMark and .mdx as MDX, so contributors writing
+  // articles as .md can use ordinary Markdown (including HTML comments)
+  // without running into MDX's stricter parser.
+  markdown: {
+    format: 'detect',
+  },
+
+  plugins: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        // There is no blog in this site; without this the plugin looks for a
+        // blog/ directory and warns that it is missing.
+        indexBlog: false,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -41,26 +58,12 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Academic-Council/academic-archive/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // The Academic Council's articles live inside subjects, so the
+        // generic blog is disabled.
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -69,76 +72,54 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
+      title: 'Academic Archive',
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'guideSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Guide',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/docs/tags/', label: 'Browse by tag', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Academic-Council/academic-archive',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Guide',
           items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            {label: 'About This Guide', to: '/docs/'},
+            {label: 'Years 8–10', to: '/docs/year-8/'},
+            {label: 'IB (Years 11–12)', to: '/docs/ib/'},
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
+            {label: 'Browse by tag', to: '/docs/tags/'},
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Academic-Council/academic-archive',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} UCC Academic Council. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

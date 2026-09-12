@@ -1,0 +1,128 @@
+# Pre-defined tags for the docs plugin (see the "tags" option).
+# Keys are referenced from the "tags" front matter field.
+
+# --- Stage ---
+year-8:
+  label: 'Year 8'
+year-9:
+  label: 'Year 9'
+year-10:
+  label: 'Year 10'
+ib:
+  label: 'IB (Years 11–12)'
+
+# --- Content type ---
+course:
+  label: 'Course'
+article:
+  label: 'Article'
+pathway:
+  label: 'Pathway'
+core:
+  label: 'DP Core'
+
+# --- Subject areas (Years 8–10) ---
+english:
+  label: 'English'
+languages:
+  label: 'Languages'
+mathematics:
+  label: 'Mathematics'
+sciences:
+  label: 'Sciences'
+humanities:
+  label: 'Humanities'
+arts:
+  label: 'Arts'
+design:
+  label: 'Design'
+health-and-pe:
+  label: 'Health & PE'
+core-programme:
+  label: 'Core Programme'
+career-studies:
+  label: 'Career Studies'
+
+# --- IB subject groups ---
+group-1:
+  label: 'Group 1 — Studies in Language & Literature'
+group-2:
+  label: 'Group 2 — Language Acquisition'
+group-3:
+  label: 'Group 3 — Individuals & Societies'
+group-4:
+  label: 'Group 4 — Sciences'
+group-5:
+  label: 'Group 5 — Mathematics'
+group-6:
+  label: 'Group 6 — The Arts'
+interdisciplinary:
+  label: 'Interdisciplinary'
+
+# --- IB levels ---
+sl:
+  label: 'SL'
+hl:
+  label: 'HL'
+
+# --- IB subjects ---
+biology:
+  label: 'Biology'
+business-management:
+  label: 'Business Management'
+chemistry:
+  label: 'Chemistry'
+chinese-a-language-and-literature:
+  label: 'Chinese A: Language & Literature'
+chinese-b:
+  label: 'Chinese B'
+computer-science:
+  label: 'Computer Science'
+economics:
+  label: 'Economics'
+english-a-language-and-literature:
+  label: 'English A: Language & Literature'
+english-a-literature:
+  label: 'English A: Literature'
+environmental-systems-and-societies:
+  label: 'Environmental Systems & Societies'
+film:
+  label: 'Film'
+french-a-language-and-literature:
+  label: 'French A: Language & Literature'
+french-b:
+  label: 'French B'
+geography:
+  label: 'Geography'
+global-politics:
+  label: 'Global Politics'
+history:
+  label: 'History'
+latin:
+  label: 'Latin'
+mathematics-analysis-and-approaches:
+  label: 'Mathematics: Analysis & Approaches'
+mathematics-applications-and-interpretation:
+  label: 'Mathematics: Applications & Interpretation'
+music:
+  label: 'Music'
+other-language-a-arrangements:
+  label: 'Other Language A Arrangements'
+philosophy:
+  label: 'Philosophy'
+physics:
+  label: 'Physics'
+psychology:
+  label: 'Psychology'
+spanish-a-language-and-literature:
+  label: 'Spanish A: Language & Literature'
+spanish-ab-initio:
+  label: 'Spanish ab initio'
+spanish-b:
+  label: 'Spanish B'
+sports-exercise-and-health-science:
+  label: 'Sports, Exercise & Health Science'
+theatre:
+  label: 'Theatre'
+visual-arts:
+  label: 'Visual Arts'

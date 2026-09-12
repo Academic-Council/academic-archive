@@ -1,43 +1,82 @@
-# Website
+# Academic Archive
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Notes, guides, and resources for UCC students.
 
-## Installation
+A Docusaurus site collecting, for every course we cover, a course introduction, a
+dump of external resources, and articles written by the Academic Council.
 
-```bash
-npm install
-```
+## Requirements
 
-**Note**: feel free to use the package manager of your choice.
+- Node.js >= 20 (developed on 24)
+- pnpm (pinned via the `packageManager` field in `package.json`)
 
-## Local Development
-
-```bash
-npm run start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+## Commands
 
 ```bash
-npm run build
+pnpm install      # install dependencies
+pnpm start        # dev server at http://localhost:3000
+pnpm build        # production build into build/
+pnpm serve        # serve the production build locally
+pnpm typecheck    # tsc --noEmit
+pnpm clear        # clear the Docusaurus cache
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Note: unlike npm, pnpm forwards extra arguments to the underlying script
+directly, so use `pnpm start --no-open` (not `pnpm start -- --no-open`).
+
+## Structure
+
+```
+docs/
+  index.md                 About this guide
+  year-8/  year-9/  year-10/
+    <course>/index.md      the course page
+    <course>/articles/     Academic Council articles for that course
+  ib/
+    index.md               IB at a glance
+    pathways/              the three UCC graduation pathways
+    core/                  TOK, Extended Essay, CAS
+    subjects/              all IB subjects, alphabetical
+templates/article.md       copy this to start a new article
+```
+
+Every course page follows the same three-part structure:
+
+1. **Introduction** — what the course is about, important considerations.
+2. **Resource dump** — syllabus, textbooks, tutoring sites, video, past papers.
+3. **Articles** — links out to the `articles/` folder beside the page.
+
+IB subjects are a single page per subject; HL and SL are properties of that page
+(level-tagged sections) rather than separate pages, because a course runs across
+both Year 11 and Year 12.
+
+## Adding an article
+
+1. Copy `templates/article.md`.
+2. Save it into the relevant course's `articles/` folder, e.g.
+   `docs/ib/subjects/philosophy/articles/how-to-construct-a-philosophical-argument.md`.
+3. Add the course's subject tag alongside `article` (`tags: [article, philosophy]`).
+
+The article then appears in the sidebar under that course's **Articles** category.
+A course with no articles yet renders as a plain sidebar link and automatically
+becomes an expandable category once its first article is added.
+
+## Tags
+
+Tag keys and their display labels are defined in `docs/tags.yml`. Pages reference
+them by key from front matter. Tags power the cross-cutting views — including
+IB subject groups, which is how a subject that spans two groups (Environmental
+Systems & Societies is tagged `group-3`, `group-4`, and `interdisciplinary`)
+stays a single page while remaining reachable from both groups.
+
+`pnpm build` warns about inline tags that are not declared in `docs/tags.yml`.
 
 ## Deployment
 
-Using SSH:
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and
+publishes it to GitHub Pages at
+<https://academic-council.github.io/academic-archive/>.
 
-```bash
-USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The Pages project site needs `url` and `baseUrl` in `docusaurus.config.ts` to stay
+in sync with the repository name — if the site ever moves to a custom domain,
+update both.
