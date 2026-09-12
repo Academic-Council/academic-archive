@@ -1,0 +1,6 @@
+# Build-script approval (pnpm 11+; replaces onlyBuiltDependencies).
+# @swc/core needs its postinstall to wire up the native binary that Rspack/SWC
+# use. core-js's postinstall only prints a donation banner, so it is denied.
+allowBuilds:
+  '@swc/core': true
+  core-js: false
