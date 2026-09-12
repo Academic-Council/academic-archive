@@ -17,24 +17,45 @@ const CARDS: GuideCard[] = [
   {
     title: 'Year 8',
     to: '/docs/year-8/',
-    description: 'Placeholder — description of the Year 8 courses here.',
+    description: 'Description of the Year 8 subjects here.',
   },
   {
     title: 'Year 9',
     to: '/docs/year-9/',
-    description: 'Placeholder — description of the Year 9 courses here.',
+    description: 'Description of the Year 9 subjects here.',
   },
   {
     title: 'Year 10',
     to: '/docs/year-10/',
-    description: 'Placeholder — description of the Year 10 courses here.',
+    description: 'Description of the Year 10 subjects here.',
   },
   {
     title: 'IB (Years 11–12)',
     to: '/docs/ib/',
-    description:
-      'Placeholder — description of the IB pathways, DP Core, and subjects here.',
+    description: 'Description of the IB pathways, DP Core, and subjects here.',
   },
+];
+
+const STEPS = [
+  {
+    title: 'Find your subject',
+    description: 'Description of how to find your subject here.',
+  },
+  {
+    title: 'Read the introduction',
+    description: 'Description of what the introduction covers here.',
+  },
+  {
+    title: 'Use the resource dump',
+    description: 'Description of how to use the resource dump here.',
+  },
+];
+
+const QUICK_LINKS = [
+  {label: 'About This Resource', to: '/docs/'},
+  {label: 'Graduation Pathways', to: '/docs/ib/pathways/'},
+  {label: 'Systems Transformations', to: '/docs/ib/systems-transformations/'},
+  {label: 'Browse by tag', to: '/docs/tags/'},
 ];
 
 function HomepageHeader(): ReactNode {
@@ -67,16 +88,55 @@ export default function Home(): ReactNode {
     <Layout title={siteConfig.title} description={siteConfig.tagline}>
       <HomepageHeader />
       <main>
-        <section className="container">
-          <div className={styles.cardGrid}>
-            {CARDS.map((card) => (
-              <Link className={styles.card} key={card.title} to={card.to}>
-                <Heading as="h2" className={styles.cardTitle}>
-                  {card.title}
-                </Heading>
-                <p className={styles.cardDescription}>{card.description}</p>
-              </Link>
-            ))}
+        <section className={styles.section}>
+          <div className="container">
+            <Heading as="h2" className={styles.sectionHeading}>
+              Start here
+            </Heading>
+            <div className={styles.cardGrid}>
+              {CARDS.map((card) => (
+                <Link className={styles.card} key={card.title} to={card.to}>
+                  <Heading as="h3" className={styles.cardTitle}>
+                    {card.title}
+                  </Heading>
+                  <p className={styles.cardDescription}>{card.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.sectionAlt}>
+          <div className="container">
+            <Heading as="h2" className={styles.sectionHeading}>
+              How to use this resource
+            </Heading>
+            <div className={styles.stepGrid}>
+              {STEPS.map((step, index) => (
+                <div key={step.title}>
+                  <span className={styles.stepNumber}>{index + 1}</span>
+                  <Heading as="h3" className={styles.stepTitle}>
+                    {step.title}
+                  </Heading>
+                  <p className={styles.stepDescription}>{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className="container">
+            <Heading as="h2" className={styles.sectionHeading}>
+              Quick links
+            </Heading>
+            <div className={styles.linkRow}>
+              {QUICK_LINKS.map((link) => (
+                <Link className={styles.quickLink} key={link.label} to={link.to}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>

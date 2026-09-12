@@ -30,13 +30,6 @@ const config: Config = {
     locales: ['en'],
   },
 
-  // Treat .md as plain CommonMark and .mdx as MDX, so contributors writing
-  // articles as .md can use ordinary Markdown (including HTML comments)
-  // without running into MDX's stricter parser.
-  markdown: {
-    format: 'detect',
-  },
-
   plugins: [
     [
       '@easyops-cn/docusaurus-search-local',
@@ -80,9 +73,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'guideSidebar',
+          sidebarId: 'resourceSidebar',
           position: 'left',
-          label: 'Guide',
+          label: 'Resource',
         },
         {to: '/docs/tags/', label: 'Browse by tag', position: 'left'},
         {
@@ -101,9 +94,9 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Guide',
+          title: 'Resource',
           items: [
-            {label: 'About This Guide', to: '/docs/'},
+            {label: 'About This Resource', to: '/docs/'},
             {label: 'Years 8–10', to: '/docs/year-8/'},
             {label: 'IB (Years 11–12)', to: '/docs/ib/'},
           ],

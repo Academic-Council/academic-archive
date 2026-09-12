@@ -20,6 +20,8 @@ pathway:
   label: 'Pathway'
 core:
   label: 'DP Core'
+systems-transformations:
+  label: 'Systems Transformations'
 
 # --- Subject areas (Years 8–10) ---
 english:

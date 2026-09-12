@@ -4,3 +4,11 @@
 allowBuilds:
   '@swc/core': true
   core-js: false
+
+# The swizzled theme components in src/theme/ import from these packages, which
+# are transitive dependencies of @docusaurus/preset-classic. pnpm's isolated
+# node_modules would otherwise hide them from the project root, so hoist them.
+publicHoistPattern:
+  - '@docusaurus/theme-common'
+  - '@docusaurus/plugin-content-docs'
+

@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
 }
 
@@ -24,11 +24,26 @@
   flex-wrap: wrap;
 }
 
+.section {
+  padding: 3rem 0;
+}
+
+.sectionAlt {
+  padding: 3rem 0;
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sectionHeading {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  padding: 3rem 0 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
 }
 
 .card {
@@ -49,11 +64,62 @@
 
 .cardTitle {
   margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 .cardDescription {
   margin-bottom: 0;
   color: var(--ifm-color-emphasis-700);
   font-size: 0.95rem;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-white);
+  font-weight: 700;
+}
+
+.stepTitle {
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.stepDescription {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.quickLink {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  color: inherit;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.quickLink:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
 }
