@@ -24,6 +24,34 @@
   flex-wrap: wrap;
 }
 
+/*
+ * One explicit column grid shared by every homepage section, so the cards,
+ * the steps, and the quick links all sit on the same tracks instead of each
+ * section sizing its own columns from its item count.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 996px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Quick links keep their natural width instead of stretching to the track. */
+.gridStart {
+  justify-items: start;
+}
+
 .section {
   padding: 3rem 0;
 }
@@ -38,12 +66,6 @@
 .sectionHeading {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
-}
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.25rem;
 }
 
 .card {
@@ -73,12 +95,6 @@
   font-size: 0.95rem;
 }
 
-.stepGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 2rem;
-}
-
 .stepNumber {
   display: inline-flex;
   align-items: center;
@@ -93,20 +109,8 @@
 }
 
 .stepTitle {
-  margin-bottom: 0.35rem;
-  font-size: 1.05rem;
-}
-
-.stepDescription {
   margin-bottom: 0;
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.95rem;
-}
-
-.linkRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  font-size: 1.05rem;
 }
 
 .quickLink {

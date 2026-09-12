@@ -40,7 +40,7 @@ The wider tree:
 
 ```
 docs/
-  index.md                 About This Resource
+  index.md                 About
   year-8/  year-9/  year-10/
   ib/
     index.md               IB at a Glance

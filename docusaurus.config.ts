@@ -75,7 +75,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'resourceSidebar',
           position: 'left',
-          label: 'Resource',
+          label: 'Resources',
         },
         {to: '/docs/tags/', label: 'Browse by tag', position: 'left'},
         {
@@ -88,6 +88,10 @@ const config: Config = {
     docs: {
       sidebar: {
         hideable: true,
+        // Act like an accordion: expanding a category collapses its siblings
+        // at the same level, so only one of Year 8 / Year 9 / Year 10 / IB is
+        // open at a time.
+        autoCollapseCategories: true,
       },
     },
     footer: {
@@ -96,7 +100,7 @@ const config: Config = {
         {
           title: 'Resource',
           items: [
-            {label: 'About This Resource', to: '/docs/'},
+            {label: 'About', to: '/docs/'},
             {label: 'Years 8–10', to: '/docs/year-8/'},
             {label: 'IB (Years 11–12)', to: '/docs/ib/'},
           ],

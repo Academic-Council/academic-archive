@@ -37,24 +37,14 @@ const CARDS: GuideCard[] = [
 ];
 
 const STEPS = [
-  {
-    title: 'Find your subject',
-    description: 'Description of how to find your subject here.',
-  },
-  {
-    title: 'Read the introduction',
-    description: 'Description of what the introduction covers here.',
-  },
-  {
-    title: 'Use the resource dump',
-    description: 'Description of how to use the resource dump here.',
-  },
+  'Find your subject',
+  'Read the introduction',
+  'Use our resources',
 ];
 
 const QUICK_LINKS = [
-  {label: 'About This Resource', to: '/docs/'},
+  {label: 'About', to: '/docs/'},
   {label: 'Graduation Pathways', to: '/docs/ib/pathways/'},
-  {label: 'Systems Transformations', to: '/docs/ib/systems-transformations/'},
   {label: 'Browse by tag', to: '/docs/tags/'},
 ];
 
@@ -93,7 +83,7 @@ export default function Home(): ReactNode {
             <Heading as="h2" className={styles.sectionHeading}>
               Start here
             </Heading>
-            <div className={styles.cardGrid}>
+            <div className={styles.grid}>
               {CARDS.map((card) => (
                 <Link className={styles.card} key={card.title} to={card.to}>
                   <Heading as="h3" className={styles.cardTitle}>
@@ -111,14 +101,13 @@ export default function Home(): ReactNode {
             <Heading as="h2" className={styles.sectionHeading}>
               How to use this resource
             </Heading>
-            <div className={styles.stepGrid}>
+            <div className={styles.grid}>
               {STEPS.map((step, index) => (
-                <div key={step.title}>
+                <div key={step}>
                   <span className={styles.stepNumber}>{index + 1}</span>
                   <Heading as="h3" className={styles.stepTitle}>
-                    {step.title}
+                    {step}
                   </Heading>
-                  <p className={styles.stepDescription}>{step.description}</p>
                 </div>
               ))}
             </div>
@@ -130,7 +119,7 @@ export default function Home(): ReactNode {
             <Heading as="h2" className={styles.sectionHeading}>
               Quick links
             </Heading>
-            <div className={styles.linkRow}>
+            <div className={clsx(styles.grid, styles.gridStart)}>
               {QUICK_LINKS.map((link) => (
                 <Link className={styles.quickLink} key={link.label} to={link.to}>
                   {link.label}

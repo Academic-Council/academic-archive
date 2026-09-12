@@ -1,11 +1,11 @@
 ---
-title: "About This Resource"
-sidebar_label: "About This Resource"
+title: "About"
+sidebar_label: "About"
 sidebar_position: 1
 description: "What the Academic Archive is, who it is for, and how to use it."
 tags: [course]
 ---
-# About This Resource
+# About
 
 > Description of this guide here.
 
