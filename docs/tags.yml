@@ -9,7 +9,7 @@ year-9:
 year-10:
   label: 'Year 10'
 ib:
-  label: 'IB (Years 11–12)'
+  label: 'IB Programme'
 
 # --- Content type ---
 course:

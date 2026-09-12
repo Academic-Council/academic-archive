@@ -2,89 +2,102 @@
 
 Notes, guides, and resources for UCC students.
 
-A Docusaurus site collecting, for every subject we cover, an introduction, a
-dump of external resources, and articles written by the Academic Council.
+## What this is
 
-## Requirements
+For every course we cover, the Academic Archive holds three things:
 
-- Node.js >= 20 (developed on 24)
-- pnpm (pinned via the `packageManager` field in `package.json`)
+| Section | What goes in it |
+| --- | --- |
+| **Introduction** | What the course is about, and what to consider before taking it. |
+| **Resource dump** | External resources: syllabus documents, textbooks, tutoring and prep sites, videos, past papers. |
+| **Articles** | Pieces written by the Academic Council. |
 
-## Commands
+## How it is organised
 
-```bash
-pnpm install      # install dependencies
-pnpm start        # dev server at http://localhost:3000/academic-archive/
-pnpm build        # production build into build/
-pnpm serve        # serve the production build locally
-pnpm typecheck    # tsc --noEmit
-pnpm clear        # clear the Docusaurus cache
-```
-
-Note: unlike npm, pnpm forwards extra arguments to the underlying script
-directly, so use `pnpm start --no-open` (not `pnpm start -- --no-open`).
-
-## Structure
-
-Every subject is a folder holding its three sections:
-
-```
-docs/<stage>/<subject>/
-  _category_.json      makes the subject itself clickable
-  introduction.md      what the course is about, important considerations
-  resource-dump.md     syllabus, textbooks, tutoring, video, past papers
-  articles/            Academic Council articles for that subject
-```
-
-The wider tree:
+Everything lives in `docs/`, one folder per course:
 
 ```
 docs/
-  index.md                 About
+  index.md                  About
   year-8/  year-9/  year-10/
-  ib/
-    index.md               IB at a Glance
-    pathways/              the three UCC graduation pathways
-    core/                  Theory of Knowledge, Extended Essay, CAS
-    courses/               IB courses, alphabetical
-templates/article.md       copy this to start a new article
+    <course>/
+      introduction.md
+      resource-dump.md
+      articles/
+  ib-programme/
+    index.md                IB at a Glance
+    pathways/               the graduation pathways
+    core/                   Theory of Knowledge, Extended Essay, CAS
+    courses/                IB courses, alphabetical
 ```
 
-IB subjects are one subject per folder. HL and SL are properties of that
-subject — level-tagged sections and `hl` / `sl` tags — rather than separate
-subjects, because a course runs across both Year 11 and Year 12.
+A course and its `articles/` folder always sit together, so an article about
+Psychology belongs in `docs/ib-programme/courses/psychology/articles/`.
 
-Environmental Systems & Societies is a single subject tagged `group-3`,
-`group-4`, and `interdisciplinary`, so it is reachable from both groups without
-duplicating content.
+HL and SL are not separate courses. A course runs across both years of the
+diploma, so it gets one page, with the level differences written into it.
+
+## Writing
+
+Every file is **MDX**: Markdown that can also take JSX if you ever need it. You
+can write ordinary Markdown and ignore that part entirely.
+
+The guide to keep open while writing is
+**[Markdown features](https://docusaurus.io/docs/markdown-features)**. It covers
+headings, links, lists, images, tables, code blocks, callout boxes
+(admonitions), and collapsible sections. For the deeper end of MDX itself, see
+[mdxjs.com](https://mdxjs.com/docs/).
+
+Two things worth knowing:
+
+- Every file opens with a **front matter** block between `---` lines. The
+  `title` and `description` there are what show up in the browser tab, in
+  search results, and in link previews.
+- Start body headings at `##`. The page title is already the `#` heading, so
+  the first `#` you write would be a second one.
 
 ## Adding an article
 
-1. Copy `templates/article.md`.
-2. Save it into the relevant subject's `articles/` folder, e.g.
-   `docs/ib/courses/philosophy/articles/how-to-construct-a-philosophical-argument.md`.
-3. Add the subject's tag alongside `article` (`tags: [article, philosophy]`).
+1. Create the file in the right `articles/` folder, named after the article:
 
-The article then appears in the sidebar under that subject's Articles section.
+   `docs/ib-programme/courses/philosophy/articles/how-to-construct-a-philosophical-argument.md`
 
-## Markdown
+2. Open it with front matter:
 
-`.md` and `.mdx` files are both parsed as MDX, so anything MDX supports works in
-either.
+   ```md
+   ---
+   title: "How to Construct a Philosophical Argument"
+   sidebar_label: "How to Construct a Philosophical Argument"
+   description: "A practical method for building and defending a philosophical argument."
+   tags: [article, philosophy]
+   ---
+   ```
+
+3. Write the article underneath, starting headings at `##`.
+
+It then appears in the sidebar under that course's Articles on its own — there
+is no navigation to update. `templates/article.md` is the same starting point if
+you would rather copy a file.
+
+## Adding a resource
+
+Open the course's `resource-dump.md` and add a bullet under the matching
+heading:
+
+```md
+## Textbooks
+
+- *Campbell Biology* — the standard reference; chapters 1–12 line up with the
+  first unit.
+- *Oxford IB Study Guide* — condensed, and the best thing to revise from.
+```
+
+Name the resource in italics, add an em dash, then say in a sentence why it is
+worth someone's time. A bare list of links is far less useful than a line of
+context.
 
 ## Tags
 
-Tag keys and their display labels are defined in `docs/tags.yml`. Pages reference
-them by key from front matter. Tags power the cross-cutting views, including the
-IB subject groups. `pnpm build` warns about inline tags that are not declared in
-`docs/tags.yml`.
-
-## Deployment
-
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and
-publishes it to GitHub Pages at
-<https://academic-council.github.io/academic-archive/>.
-
-The Pages project site needs `url` and `baseUrl` in `docusaurus.config.ts` to stay
-in sync with the repository name. If the site ever moves to a custom domain,
-update both.
+Tags drive the cross-cutting views, such as every course in one IB group. Use the
+keys listed in `docs/tags.yml`, and give an article its course's tag alongside
+`article` so the two are grouped together.

@@ -102,7 +102,7 @@ const config: Config = {
           items: [
             {label: 'About', to: '/docs/'},
             {label: 'Years 8–10', to: '/docs/year-8/'},
-            {label: 'IB (Years 11–12)', to: '/docs/ib/'},
+            {label: 'IB Programme', to: '/docs/ib-programme/'},
           ],
         },
         {

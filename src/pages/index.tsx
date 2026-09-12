@@ -30,9 +30,9 @@ const CARDS: GuideCard[] = [
     description: 'Description of the Year 10 subjects here.',
   },
   {
-    title: 'IB (Years 11–12)',
-    to: '/docs/ib/',
-    description: 'Description of the IB pathways, DP Core, and subjects here.',
+    title: 'IB Programme',
+    to: '/docs/ib-programme/',
+    description: 'Description of the IB pathways, DP Core, and courses here.',
   },
 ];
 
