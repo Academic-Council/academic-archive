@@ -1,13 +1,13 @@
 ---
-title: "Systems Transformation: Innovation for a Better World — Introduction"
+title: "Systems Transformation — Introduction"
 sidebar_label: "Introduction"
 sidebar_position: 1
-description: "Systems Transformation: Innovation for a Better World: what the course covers and important considerations."
-tags: [ib, course, systems-transformations]
+description: "IB Systems Transformation (Innovation for a Better World): what the course covers and important considerations."
+tags: [ib, course, systems-transformation]
 ---
 # Introduction
 
-> Description of Systems Transformation: Innovation for a Better World here.
+> Description of Systems Transformation here.
 
 ## What is this course about?
 

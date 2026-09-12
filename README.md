@@ -46,8 +46,7 @@ docs/
     index.md               IB at a Glance
     pathways/              the three UCC graduation pathways
     core/                  Theory of Knowledge, Extended Essay, CAS
-    subjects/              IB subjects, alphabetical
-    systems-transformations/
+    courses/               IB courses, alphabetical
 templates/article.md       copy this to start a new article
 ```
 
@@ -63,7 +62,7 @@ duplicating content.
 
 1. Copy `templates/article.md`.
 2. Save it into the relevant subject's `articles/` folder, e.g.
-   `docs/ib/subjects/philosophy/articles/how-to-construct-a-philosophical-argument.md`.
+   `docs/ib/courses/philosophy/articles/how-to-construct-a-philosophical-argument.md`.
 3. Add the subject's tag alongside `article` (`tags: [article, philosophy]`).
 
 The article then appears in the sidebar under that subject's Articles section.

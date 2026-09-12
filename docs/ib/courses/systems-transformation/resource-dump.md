@@ -1,13 +1,13 @@
 ---
-title: "Systems Transformation: Innovation for a Better World — Resource dump"
+title: "Systems Transformation — Resource dump"
 sidebar_label: "Resource dump"
 sidebar_position: 2
-description: "Recommended external resources for Systems Transformation: Innovation for a Better World."
-tags: [ib, course, systems-transformations]
+description: "Recommended external resources for IB Systems Transformation."
+tags: [ib, course, systems-transformation]
 ---
 # Resource dump
 
-> Description of Systems Transformation: Innovation for a Better World resources here.
+> Description of Systems Transformation resources here.
 
 ## Syllabus & official documents
 
@@ -28,4 +28,3 @@ tags: [ib, course, systems-transformations]
 ## Practice & past papers
 
 - *Resource name* — description of resource here.
-

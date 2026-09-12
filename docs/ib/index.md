@@ -25,6 +25,6 @@ Description of the three graduation pathways here.
 
 Description of the DP Core here.
 
-## Subjects
+## Courses
 
-Description of the subject groups here.
+Description of the course groups here.

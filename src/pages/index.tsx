@@ -36,17 +36,7 @@ const CARDS: GuideCard[] = [
   },
 ];
 
-const STEPS = [
-  'Find your subject',
-  'Read the introduction',
-  'Use our resources',
-];
-
-const QUICK_LINKS = [
-  {label: 'About', to: '/docs/'},
-  {label: 'Graduation Pathways', to: '/docs/ib/pathways/'},
-  {label: 'Browse by tag', to: '/docs/tags/'},
-];
+const STEPS = ['Find your subject', 'Read the introduction', 'Use our resources'];
 
 function HomepageHeader(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
@@ -57,16 +47,6 @@ function HomepageHeader(): ReactNode {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/year-8/">
-            Years 8–10
-          </Link>
-          <Link className="button button--secondary button--lg" to="/docs/ib/">
-            IB (Years 11–12)
-          </Link>
-        </div>
       </div>
     </header>
   );
@@ -96,34 +76,18 @@ export default function Home(): ReactNode {
           </div>
         </section>
 
-        <section className={styles.sectionAlt}>
+        <section
+          className={styles.sectionAlt}
+          aria-label="How to use this resource">
           <div className="container">
-            <Heading as="h2" className={styles.sectionHeading}>
-              How to use this resource
-            </Heading>
-            <div className={styles.grid}>
+            <div className={styles.stepGrid}>
               {STEPS.map((step, index) => (
-                <div key={step}>
+                <div className={styles.step} key={step}>
                   <span className={styles.stepNumber}>{index + 1}</span>
                   <Heading as="h3" className={styles.stepTitle}>
                     {step}
                   </Heading>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.section}>
-          <div className="container">
-            <Heading as="h2" className={styles.sectionHeading}>
-              Quick links
-            </Heading>
-            <div className={clsx(styles.grid, styles.gridStart)}>
-              {QUICK_LINKS.map((link) => (
-                <Link className={styles.quickLink} key={link.label} to={link.to}>
-                  {link.label}
-                </Link>
               ))}
             </div>
           </div>

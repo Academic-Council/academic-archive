@@ -16,19 +16,23 @@
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+.section {
+  padding: 3rem 0;
 }
 
-/*
- * One explicit column grid shared by every homepage section, so the cards,
- * the steps, and the quick links all sit on the same tracks instead of each
- * section sizing its own columns from its item count.
- */
+.sectionAlt {
+  padding: 3rem 0;
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sectionHeading {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Start here: four equal columns. */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -45,27 +49,6 @@
   .grid {
     grid-template-columns: minmax(0, 1fr);
   }
-}
-
-/* Quick links keep their natural width instead of stretching to the track. */
-.gridStart {
-  justify-items: start;
-}
-
-.section {
-  padding: 3rem 0;
-}
-
-.sectionAlt {
-  padding: 3rem 0;
-  background-color: var(--ifm-background-surface-color);
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.sectionHeading {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
 }
 
 .card {
@@ -95,6 +78,26 @@
   font-size: 0.95rem;
 }
 
+/*
+ * Steps: three columns, each step centred within its own column. Centring the
+ * text also centres the inline-flex number badge.
+ */
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 600px) {
+  .stepGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.step {
+  text-align: center;
+}
+
 .stepNumber {
   display: inline-flex;
   align-items: center;
@@ -111,19 +114,4 @@
 .stepTitle {
   margin-bottom: 0;
   font-size: 1.05rem;
-}
-
-.quickLink {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 999px;
-  color: inherit;
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-
-.quickLink:hover {
-  border-color: var(--ifm-color-primary);
-  color: var(--ifm-color-primary);
-  text-decoration: none;
 }
